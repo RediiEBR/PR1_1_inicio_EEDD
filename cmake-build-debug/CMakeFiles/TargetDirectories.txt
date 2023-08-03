@@ -1,0 +1,3 @@
+C:/Users/chema/OneDrive/Documentos/Practicas EEDD/PR1_1_inicio/cmake-build-debug/CMakeFiles/imagenes.dir
+C:/Users/chema/OneDrive/Documentos/Practicas EEDD/PR1_1_inicio/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/chema/OneDrive/Documentos/Practicas EEDD/PR1_1_inicio/cmake-build-debug/CMakeFiles/rebuild_cache.dir
