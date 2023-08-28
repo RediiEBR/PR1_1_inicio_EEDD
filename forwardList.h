@@ -17,6 +17,7 @@ public:
     }
     bool hasNext(){return next!=nullptr;}
     bool hasData(X&data);
+    
 };
 
 template<typename X>
