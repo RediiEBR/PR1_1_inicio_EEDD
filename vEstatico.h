@@ -17,7 +17,7 @@ private:
 
 public:
     vEstatico();
-    vEstatico( unsigned int tam );
+    explicit vEstatico( unsigned int tam );
     vEstatico( const vEstatico < T > & original );
     vEstatico( const vEstatico < T > & original , unsigned int inicio , unsigned int numelementos );
     vEstatico < T > & operator=( const vEstatico < T > & original );
@@ -146,7 +146,12 @@ T vEstatico<T>::recupera( unsigned int pos )
 template<typename T>
 void vEstatico<T>::ordenar(){ std :: sort( memoria , memoria + tama ) ; }
 template<typename T>
-void vEstatico<T>::revertir() { std :: reverse( this->memoria , this->memoria+tama ) ; }
+void vEstatico<T>::revertir()
+{
+    this->ordenar();
+    std :: reverse( this->memoria , this->memoria+tama ) ;
+}
+
 template<typename T>
 
 vEstatico<T>::~vEstatico()

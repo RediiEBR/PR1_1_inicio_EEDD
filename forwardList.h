@@ -9,18 +9,17 @@ private:
     template<typename X>
     class Node
     {
-    private:
+    public:
         X value;
         Node * next;
-    public:
         Node () : value() , next( nullptr ){};
-        explicit Node ( Node < T >  & n ) : value(),next ( n ) { } ;
         //https://www.scaler.com/topics/cpp-explicit/
         explicit Node ( X & val ) : value ( val ) , next ( nullptr ) { } ;
     };
     Node < T > * head , tail ;
     unsigned int dimension = 0 ;
 public:
+
     class Iterator
     {
         Node < T > * node ;
@@ -31,7 +30,7 @@ public:
         void advance(unsigned int howMany);
 
     };
-    forwardList () : head ( nullptr ) , tail( nullptr ) { } ;
+    forwardList () : head (  ) , tail(  ) , dimension(0) { } ;
     forwardList ( const forwardList < T >  & origin) ;
     forwardList < T >  & operator = ( const forwardList < T > & origin ) ;
     forwardList < T >  operator + ( const forwardList < T > & origin ) ;
@@ -47,6 +46,42 @@ public:
     ~forwardList();
     Iterator iterador();
 };
+
+template<typename T>
+forwardList<T> forwardList<T>::operator+(const forwardList<T> &origin) {
+    forwardList<T> ret;
+    Node<T>*p = this->head;
+    Node<T>*q = origin.head;
+    Node<T>*n=ret.head;
+    Node<T>*n1= ret.head->next;
+    while(p)
+    {
+        //creo el nuevo nodo de la lista de retorno
+        n = new Node<T>(p->value);
+        n->next=n1;
+        n1=n->next;
+        
+        p=p->next;
+    }
+
+}
+
+template<typename T>
+forwardList<T> &forwardList<T>::operator=(const forwardList<T> &origin) {
+    if(&origin!=this)
+    {
+        Node<T>*dis = this->head;
+        Node<T>*p = dis->next;
+        while(!p)
+        {
+            delete dis;
+            dis = p;
+            p=p->next;
+        }
+        delete dis;
+    }
+    return *this;
+}
 
 /**
  *
