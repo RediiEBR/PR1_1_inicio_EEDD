@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/imagenes.dir/main.cpp.o CMakeFiles/imagenes.dir/fecha.cpp.o CMakeFiles/imagenes.dir/Imagen.cpp.o -o imagenes 
