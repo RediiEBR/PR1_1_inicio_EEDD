@@ -1,7 +1,7 @@
 #ifndef IMAGENES_VESTATICO_H
 #define IMAGENES_VESTATICO_H
 #include <string>
-
+#include <stdexcept>
 template < typename T >
 /**
  * <h1>Definicion de vector estatico</h1>

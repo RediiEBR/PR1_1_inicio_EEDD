@@ -1,15 +1,18 @@
 #include <iostream>
+#include <forward_list>
 #include "forwardList.h"
 
-using namespace std;
+
 int main()
 {
-    forwardList<int> in;
+    std::forward_list<int>in;
+    forwardList<int> ints;
     for (int i = 0; i < 100; ++i)
     {
-        in.push_back(i);
+        in.push_front(i);
+       // in.push_back(i);
     }
 
-    in.size();
+    //in.size();
     return 0;
 }

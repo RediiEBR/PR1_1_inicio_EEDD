@@ -1,5 +1,5 @@
 /**
- * @brief definition for the forwardList, linked list with the next pointer as a way of iterate through the list
+ * @brief definition for the forwardList, linked list with the next pointer as a way of iterate through itself
  * @author josemanuelmartin.fuentezuelas@gmail.com
 */
 template<typename T>
@@ -21,6 +21,10 @@ private:
          * the value is set as the default X datatype constructor and the next value is set to nullptr
         */
         Node () : value() , next( nullptr ){};
+        /**
+         *
+         */
+         Node(X& data,Node<X>*nOne):value(data),next(nOne){};
         //https://www.scaler.com/topics/cpp-explicit/
         /**
          * @brief given X as a value, the node will create with not a next Node to point at
@@ -36,8 +40,9 @@ public:
     class Iterator
     {
     private:
-        Node < T > * node ;
+
     public:
+        Node < T > * node ;
         /**
          * @brief default iterator constructor
         */
@@ -85,11 +90,18 @@ public:
     void pop_front ();
     void pop_back ();
     void pop ( Iterator & i ) ;
-    unsigned int size(){return this->dimension;};
+    unsigned int size(){ return this->dimension; };
     forwardList<T> concat( const forwardList < T > & l ) ;
     ~forwardList();
     Iterator iterador();
 };
+
+template<typename T>
+void forwardList<T>::pop_front()
+{
+    Node<T>*toDel=this->head;
+    this->head=this->head->next;//check
+}
 
 template<typename T>
 forwardList<T>::forwardList(const forwardList<T> & origin)
@@ -189,13 +201,11 @@ forwardList<T>::Iterator forwardList<T>::iterador()
 template<typename T>
 forwardList<T>::~forwardList()
 {
-    Node<T>*dis = this->head;
-    Node<T>*p = dis->next;
-    while(!p)
+    Node<T>*p = this->head;
+    while(p)
     {
-        delete dis;
-        dis = p;
-        p=p->next;
+        this->head=this->head->next;
+        delete p;
+        p=this->head;
     }
-    delete dis;
 }

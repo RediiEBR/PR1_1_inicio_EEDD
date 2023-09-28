@@ -116,91 +116,6 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named imagenes
-
-# Build rule for target.
-imagenes: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 imagenes
-.PHONY : imagenes
-
-# fast build rule for target.
-imagenes/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imagenes.dir/build.make CMakeFiles/imagenes.dir/build
-.PHONY : imagenes/fast
-
-Imagen.o: Imagen.cpp.o
-.PHONY : Imagen.o
-
-# target to build an object file
-Imagen.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imagenes.dir/build.make CMakeFiles/imagenes.dir/Imagen.cpp.o
-.PHONY : Imagen.cpp.o
-
-Imagen.i: Imagen.cpp.i
-.PHONY : Imagen.i
-
-# target to preprocess a source file
-Imagen.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imagenes.dir/build.make CMakeFiles/imagenes.dir/Imagen.cpp.i
-.PHONY : Imagen.cpp.i
-
-Imagen.s: Imagen.cpp.s
-.PHONY : Imagen.s
-
-# target to generate assembly for a file
-Imagen.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imagenes.dir/build.make CMakeFiles/imagenes.dir/Imagen.cpp.s
-.PHONY : Imagen.cpp.s
-
-fecha.o: fecha.cpp.o
-.PHONY : fecha.o
-
-# target to build an object file
-fecha.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imagenes.dir/build.make CMakeFiles/imagenes.dir/fecha.cpp.o
-.PHONY : fecha.cpp.o
-
-fecha.i: fecha.cpp.i
-.PHONY : fecha.i
-
-# target to preprocess a source file
-fecha.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imagenes.dir/build.make CMakeFiles/imagenes.dir/fecha.cpp.i
-.PHONY : fecha.cpp.i
-
-fecha.s: fecha.cpp.s
-.PHONY : fecha.s
-
-# target to generate assembly for a file
-fecha.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imagenes.dir/build.make CMakeFiles/imagenes.dir/fecha.cpp.s
-.PHONY : fecha.cpp.s
-
-main.o: main.cpp.o
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imagenes.dir/build.make CMakeFiles/imagenes.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imagenes.dir/build.make CMakeFiles/imagenes.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/imagenes.dir/build.make CMakeFiles/imagenes.dir/main.cpp.s
-.PHONY : main.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -209,16 +124,6 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... imagenes"
-	@echo "... Imagen.o"
-	@echo "... Imagen.i"
-	@echo "... Imagen.s"
-	@echo "... fecha.o"
-	@echo "... fecha.i"
-	@echo "... fecha.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 .PHONY : help
 
 
