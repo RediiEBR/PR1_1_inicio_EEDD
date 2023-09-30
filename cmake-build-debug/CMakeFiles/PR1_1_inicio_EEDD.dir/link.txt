@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/PR1_1_inicio_EEDD.dir/main.cpp.o -o PR1_1_inicio_EEDD 
