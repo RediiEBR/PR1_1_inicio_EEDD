@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/redii/Documentos/EEDD/PR1_1_inicio_EEDD/main.cpp" "CMakeFiles/PR1_1_inicio_EEDD.dir/main.cpp.o" "gcc" "CMakeFiles/PR1_1_inicio_EEDD.dir/main.cpp.o.d"
+  "C:/Users/chema/OneDrive/Documentos/Practicas EEDD/PR1_1_inicio/main.cpp" "CMakeFiles/PR1_1_inicio_EEDD.dir/main.cpp.obj" "gcc" "CMakeFiles/PR1_1_inicio_EEDD.dir/main.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

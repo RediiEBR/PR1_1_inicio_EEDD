@@ -2,7 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "PR1_1_inicio_EEDD"
+			"path" : "PR1_1_inicio_EEDD.exe"
+		},
+		{
+			"path" : "PR1_1_inicio_EEDD.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -65,12 +68,16 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "PR1_1_inicio_EEDD",
-	"nameOnDisk" : "PR1_1_inicio_EEDD",
+	"nameOnDisk" : "PR1_1_inicio_EEDD.exe",
 	"paths" : 
 	{
 		"build" : ".",

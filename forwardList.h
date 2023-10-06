@@ -1,3 +1,4 @@
+#include <stdexcept>
 /**
  * @brief definition for the forwardList, linked list with the next pointer as a way of iterate through itself
  * @author josemanuelmartin.fuentezuelas@gmail.com
@@ -27,7 +28,7 @@ private:
          Node(X& data,Node<X>*nOne):value(data),next(nOne){};
         //https://www.scaler.com/topics/cpp-explicit/
         /**
-         * @brief given X as a value, the node will create with not a next Node to point at
+         * @brief given X as a value, the node will be created without a next Node to point at
         */
         explicit Node ( X & val ) : value ( val ) , next ( nullptr ) {} ;
     };
@@ -46,7 +47,7 @@ public:
         /**
          * @brief default iterator constructor
         */
-        Iterator (  ) : node( nullptr ) { } ;
+        Iterator (  ) : node(  ) { } ;
         /**
          * @brief Node constructor given a node
         */
@@ -62,9 +63,9 @@ public:
 
     };
     /**
-     * @brief default forwardList constructor
+     * @brief default forwardList constructor, calls Node default constructor
     */
-    forwardList () : head ( nullptr ) , tail( nullptr ) , dimension(0) { } ;
+    forwardList () : head (  ) , tail(  ) , dimension(0) { } ;
     /**
      * @brief copy constructor created to the forwardList
     */
@@ -76,7 +77,7 @@ public:
     /**
      * @brief plus operator made for this container
     */
-    forwardList < T >  operator + ( const forwardList < T > & origin ) ;
+    forwardList < T > & operator + ( const forwardList < T > & origin ) ;
     /**
      * @return the first element of this list
     */
@@ -92,6 +93,9 @@ public:
     void pop ( Iterator & i ) ;
     unsigned int size(){ return this->dimension; };
     forwardList<T> concat( const forwardList < T > & l ) ;
+    /**
+     * @brief destructor made for the forwardList container
+     */
     ~forwardList();
     Iterator iterador();
 };
@@ -101,6 +105,7 @@ void forwardList<T>::pop_front()
 {
     Node<T>*toDel=this->head;
     this->head=this->head->next;//check
+    delete toDel;
 }
 
 template<typename T>
@@ -114,7 +119,7 @@ forwardList<T>::forwardList(const forwardList<T> & origin)
     }
     //else
     Node<T>*p = origin.head;
-    Node<T>*q = this->head;
+    Node<T>*q;
     Node<T>*a = this->head;
     while (p)
     {
@@ -145,7 +150,8 @@ void forwardList<T>::push_front(T&data)
     this->head=newOne;//head is now the new node
 }
 template<typename T>
-forwardList<T> forwardList<T>::operator+(const forwardList<T> &origin) {
+forwardList<T> & forwardList<T>::operator+(const forwardList<T> &origin)
+{
     forwardList<T> ret;
     Node<T>*p = this->head;
     Node<T>*q = origin.head;
@@ -164,7 +170,8 @@ forwardList<T> forwardList<T>::operator+(const forwardList<T> &origin) {
 }
 
 template<typename T>
-forwardList<T> &forwardList<T>::operator=(const forwardList<T> &origin) {
+forwardList<T> &forwardList<T>::operator=(const forwardList<T> &origin)
+{
     if(&origin!=this)
     {
         Node<T>*dis = this->head;
@@ -181,17 +188,18 @@ forwardList<T> &forwardList<T>::operator=(const forwardList<T> &origin) {
 }
 
 /**
- *
- * @tparam T como
+ * @brief Iterator option made to advance to the next node
+ * @tparam T as the template parameter
  */
 template<typename T>
 void forwardList<T>::Iterator::nextOne()
 {
-    this->node=node->next;
-}
-
-
-
+    if(this->node->next == nullptr)//has no next element?
+    {
+        throw std::out_of_range("forwardList<T>::Iterator::nextOne(). there isn't a next element");
+    }
+     this->node=node->next;
+};
 template<typename T>
 forwardList<T>::Iterator forwardList<T>::iterador()
 {
