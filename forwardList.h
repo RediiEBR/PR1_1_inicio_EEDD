@@ -101,6 +101,19 @@ public:
 };
 
 template<typename T>
+void forwardList<T>::pop_back()
+{
+    Node<T>*pointer=this->head;
+    while(pointer->next!=this->tail)
+    {
+        pointer=pointer->next;
+    }
+    delete pointer->next;
+    this->tail = pointer;
+    pointer->next= nullptr;
+}
+
+template<typename T>
 void forwardList<T>::pop_front()
 {
     Node<T>*toDel=this->head;
@@ -194,7 +207,7 @@ forwardList<T> &forwardList<T>::operator=(const forwardList<T> &origin)
 template<typename T>
 void forwardList<T>::Iterator::nextOne()
 {
-    if(this->node->next == nullptr)//has no next element?
+    if(this->node == nullptr)//has no next element?
     {
         throw std::out_of_range("forwardList<T>::Iterator::nextOne(). there isn't a next element");
     }
